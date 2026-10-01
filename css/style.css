@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: "Work Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal
+}
+header{
+    margin: 15px;
+    background-color: rgb(137, 183, 190);
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+   
+}
+.logo img{
+    width: 40px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 18px;
+}
+.navheader{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+button{
+    background-color: transparent;
+    border: none;
+}
