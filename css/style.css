@@ -6,12 +6,19 @@
     font-weight: weight;
     font-style: normal
 }
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0b0c10, #0d2243);
+    background-repeat: no-repeat;
+    color: #fff;
+}
 header{
     margin: 15px;
-    background-color: rgb(137, 183, 190);
+    background-color: rgba(32, 46, 62, 0.32) ;
     display: flex;
     padding: 5px;
     justify-content: space-between;
+    
    
 }
 .logo img{
@@ -22,17 +29,59 @@ header{
     align-items: center;
     gap: 5px;
     font-size: 18px;
+    color: rgb(209, 205, 200);
 }
 .navheader{
     display: flex;
     gap: 10px;
     align-items: center;
 }
+.navheader :hover{
+    cursor: pointer;
+    color: aqua;
+}
 a{
     text-decoration: none;
-    color: inherit;
+    color:rgb(209, 205, 200)
 }
 button{
     background-color: transparent;
     border: none;
+    color:rgb(209, 205, 200);
+    font-size: 16px;
+}
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    color: rgb(209, 205, 200);
+}
+.hero span{
+    font-size: 18px;
+    background-color: rgb(55, 32, 55);
+    padding: 10px;
+    border-radius: 30px;
+    color: #fff;
+}
+.hero h1{
+    font-size: 32px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+.button-hero button{
+    margin-top: 18px;
+    background-color: rgb(0, 13, 128);
+    border-radius: 30px;
+    padding: 10px;
+    margin-right: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+.button-hero :hover{
+    background-color: black;
+    cursor: pointer;
 }
