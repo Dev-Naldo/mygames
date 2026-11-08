@@ -166,3 +166,81 @@ button{
     color: #fbbf24; /* cor dourada para as estrelas */
     font-weight: bold;
 }
+/* Correção para usar CSS Grid Layout (Requisito 8) */
+.gamergrids {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Estilização de Formulários e Validações (Requisitos 13, 14 e 15) */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 40px auto;
+    background-color: rgba(32, 46, 62, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #94a3b8;
+    background-color: #171d28;
+    color: #fff;
+    outline: none;
+}
+/* Estados do formulário */
+input:focus, select:focus, textarea:focus {
+    border-color: aqua; /* :focus */
+}
+input:hover, select:hover, textarea:hover {
+    border-color: #fbbf24; /* :hover */
+}
+input:invalid:focus, textarea:invalid:focus {
+    border-color: red; /* :invalid */
+}
+form button[type="submit"] {
+    background-color: rgb(0, 13, 128);
+    color: white;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+form button[type="submit"]:hover {
+    background-color: aqua;
+    color: black;
+}
+
+/* Tabela de Dados (Requisito 12) */
+table {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    border-collapse: collapse;
+    background-color: #171d28;
+}
+th, td {
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+th {
+    background-color: rgba(32, 46, 62, 0.9);
+    color: aqua;
+}
+
+/* Responsividade Básica (Requisito 11) */
+@media screen and (max-width: 768px) {
+    .navheader {
+        flex-direction: column;
+    }
+    .hero h1 {
+        font-size: 24px;
+    }
+}
