@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes: Elden Ring - MY GAMES</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Logo" />
+            <a href="index.html">MyGames</a>
+        </div>
+        <nav class="navheader">
+            <a href="index.html">Início</a>
+            <a href="biblioteca.html">Minha Biblioteca</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Elden Ring</h1>
+            <p>Trilha Sonora e Trailer Oficial</p>
+        </section>
+        
+        <section style="display: flex; flex-direction: column; align-items: center; gap: 30px; padding: 40px;">
+            <!-- Reprodutor de Vídeo Nativo -->
+            <div style="width: 100%; max-width: 800px; background-color: #171d28; padding: 20px; border-radius: 12px;">
+                <h3 style="margin-bottom: 15px;">Trailer do Jogo</h3>
+                <video controls width="100%" style="border-radius: 8px;">
+                    <!-- Coloque um arquivo .mp4 na pasta raiz ou em uma subpasta "video" -->
+                    <source src="video/trailer_eldenring.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+
+            <!-- Reprodutor de Áudio Nativo -->
+            <div style="width: 100%; max-width: 800px; background-color: #171d28; padding: 20px; border-radius: 12px;">
+                <h3 style="margin-bottom: 15px;">Trilha Sonora (Main Theme)</h3>
+                <audio controls style="width: 100%;">
+                    <!-- Coloque um arquivo .mp3 na pasta raiz ou em uma subpasta "audio" -->
+                    <source src="audio/theme_eldenring.mp3" type="audio/mpeg">
+                    Seu navegador não suporta o elemento de áudio.
+                </audio>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
