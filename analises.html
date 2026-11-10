@@ -1,0 +1,120 @@
+<!--
+  Projeto: MyGames - Backlog e Diário Gamer Brasileiro
+  Disciplina: DFEW.08 - Desenvolvimento Front-End para Web
+  Professor: Fabricio Olivo (Universidade Positivo)
+  Autores: Reinaldo Celestino Da Silva Neto e Gustavo Moreira Borges Arantes
+  Arquivo: analises.html (Publicação de Reviews com Notas de 0 a 5 e Selos de Recomendação)
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análises &amp; Reviews | MyGames</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="cabecalho-principal">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Logotipo MyGames">
+                <span>My<b>Games</b></span>
+            </a>
+
+            <button type="button" id="btnMenuMobile" class="menu-mobile-btn" aria-label="Abrir Menu">☰</button>
+
+            <nav id="menuPrincipal" class="navheader" aria-label="Navegação Principal">
+                <a href="index.html">Início</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="detalhes.html">Jogo em Destaque</a>
+                <a href="biblioteca.html">Meu Backlog</a>
+                <a href="desejos.html">Lista de Desejos</a>
+                <a href="analises.html" class="ativo">Análises</a>
+                <a href="comunidade.html">Comunidade</a>
+                <a href="perfil.html">Perfil</a>
+                <a href="contato.html">Contato</a>
+                <a href="https://rawg.io/" target="_blank" rel="noopener noreferrer" class="link-externo">API RAWG ↗</a>
+                <a href="login.html" id="linkSessaoUsuario" class="btn-nav-login">Entrar / Conta</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container-principal">
+        <section class="section-header">
+            <div>
+                <h2>✍️ Publicar Nova Análise (Review)</h2>
+                <p>Avalie de 0 a 5 estrelas e escolha entre Recomendar, Não Recomendar ou Apenas em Promoção</p>
+            </div>
+        </section>
+
+        <form id="formPublicarAnalise" class="form-padrao">
+            <div class="campo-grupo">
+                <label for="analiseNomeJogo">Jogo Avaliado</label>
+                <input type="text" id="analiseNomeJogo" required minlength="2" placeholder="Ex: Elden Ring, Baldur's Gate 3, Celeste...">
+            </div>
+
+            <div class="campo-grupo">
+                <label for="analiseUsuario">Seu Username</label>
+                <input type="text" id="analiseUsuario" required minlength="3" pattern="^[a-zA-Z0-9_]{3,20}$" placeholder="Ex: reinaldo_neto (apenas letras, números e _)">
+            </div>
+
+            <div class="campo-grupo">
+                <label for="analisePlataforma">Plataforma em que Jogou</label>
+                <select id="analisePlataforma" required>
+                    <option value="PC">PC</option>
+                    <option value="PlayStation 5">PlayStation 5</option>
+                    <option value="Xbox Series X">Xbox Series X|S</option>
+                    <option value="Nintendo Switch">Nintendo Switch</option>
+                </select>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="analiseNota">Nota (0 a 5 Estrelas)</label>
+                <select id="analiseNota" required>
+                    <option value="5">★★★★★ (5 Estrelas)</option>
+                    <option value="4">★★★★☆ (4 Estrelas)</option>
+                    <option value="3">★★★☆☆ (3 Estrelas)</option>
+                    <option value="2">★★☆☆☆ (2 Estrelas)</option>
+                    <option value="1">★☆☆☆☆ (1 Estrela)</option>
+                    <option value="0">☆☆☆☆☆ (0 Estrelas)</option>
+                </select>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="analiseRecomendacao">Veredito de Recomendação</label>
+                <select id="analiseRecomendacao" required>
+                    <option value="Recomendo">👍 Recomendo</option>
+                    <option value="Apenas em Promoção">🏷️ Apenas em Promoção</option>
+                    <option value="Não Recomendo">👎 Não Recomendo</option>
+                </select>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="analiseTexto">Sua Resenha em Texto</label>
+                <textarea id="analiseTexto" rows="4" required minlength="15" placeholder="Escreva os pontos positivos, negativos e sua experiência com o jogo..."></textarea>
+            </div>
+
+            <button type="submit">Publicar Análise na Comunidade</button>
+        </form>
+
+        <section>
+            <div class="section-header">
+                <div>
+                    <h2>🌟 Mural de Análises dos Jogadores</h2>
+                    <p>Todas as resenhas publicadas na plataforma</p>
+                </div>
+            </div>
+            <div id="muralTodasAnalises" class="reviews-grid"></div>
+        </section>
+    </main>
+
+    <footer id="rodape-principal">
+        <div class="footer-bottom">
+            <span>&copy; 2026 MyGames Brasil — Universidade Positivo.</span>
+            <span>Reinaldo Celestino Da Silva Neto &amp; Gustavo Moreira Borges Arantes.</span>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
