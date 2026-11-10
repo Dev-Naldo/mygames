@@ -1,37 +1,270 @@
+<!--
+  Projeto: MyGames - Backlog e Diário Gamer Brasileiro
+  Disciplina: DFEW.08 - Desenvolvimento Front-End para Web
+  Professor: Fabricio Olivo (Universidade Positivo)
+  Autores: Reinaldo Celestino Da Silva Neto e Gustavo Moreira Borges Arantes
+  Arquivo: perfil.html (Perfil Gamer Completo com Backlog Integrado, Reviews, Favoritos, Top 5 e Customização)
+-->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Perfil - MY GAMES</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Meu Perfil Gamer | MyGames</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Logo" />
-            <a href="index.html">MyGames</a>
+    <header id="cabecalho-principal">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Logotipo MyGames">
+                <span>My<b>Games</b></span>
+            </a>
+
+            <button type="button" id="btnMenuMobile" class="menu-mobile-btn" aria-label="Abrir Menu">☰</button>
+
+            <nav id="menuPrincipal" class="navheader" aria-label="Navegação Principal">
+                <a href="index.html">Início</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="detalhes.html">Jogo em Destaque</a>
+                <a href="biblioteca.html">Meu Backlog</a>
+                <a href="desejos.html">Lista de Desejos</a>
+                <a href="analises.html">Análises</a>
+                <a href="comunidade.html">Comunidade</a>
+                <a href="perfil.html" class="ativo">Perfil</a>
+                <a href="contato.html">Contato</a>
+                <a href="https://rawg.io/apidocs" target="_blank" rel="noopener noreferrer" class="link-externo">API Docs ↗</a>
+                <a href="login.html" id="linkSessaoUsuario" class="btn-nav-login">Entrar / Conta</a>
+            </nav>
         </div>
-        <nav class="navheader">
-            <a href="index.html">Início</a>
-            <a href="adicionar.html">Adicionar Jogo</a>
-        </nav>
     </header>
-    <main style="padding: 40px;">
-        <section class="hero">
-            <h1>Meu Perfil Gamer</h1>
+
+    <main class="container-principal">
+        <section class="perfil-banner">
+            <div class="perfil-info-principal">
+                <img id="perfilAvatarImg" src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Avatar do Usuário" class="perfil-avatar-grande">
+                <div style="max-width: 640px;">
+                    <span class="badge-hero" style="margin-bottom: 6px;">Perfil Oficial Backloggd BR</span>
+                    <h1 id="perfilUsername" style="font-size: 2rem;">@reinaldo_neto</h1>
+                    <p id="perfilBio" style="color: #e2e8f0; font-size: 0.95rem; margin: 8px 0;">Estudantes de Desenvolvimento Front-End na Universidade Positivo. Apaixonados por RPGs, Soulslike e jogos indie.</p>
+                    <span id="perfilPlataformaPref" style="font-size: 0.86rem; color: #00e054; font-weight: 700;">🎮 Plataforma Preferida: PC &amp; PlayStation 5</span>
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a href="#painelMontarBacklogPerfil" class="btn-primario">➕ Registrar Jogo / Review</a>
+                <a href="#secaoEditarPerfil" class="btn-secundario">⚙️ Editar Perfil &amp; Favoritos</a>
+            </div>
         </section>
-        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-            <div style="background-color: #171d28; padding: 30px; border-radius: 12px; width: 300px; text-align: center;">
-                <h2 style="color: aqua;">15</h2>
-                <p>Jogos Finalizados</p>
+
+        <section>
+            <div class="section-header">
+                <div>
+                    <h2>⭐ 4 Jogos Favoritos de Todos os Tempos</h2>
+                    <p>Vitrine principal do seu perfil (você pode alterar os títulos na seção de customização abaixo)</p>
+                </div>
             </div>
-            <div style="background-color: #171d28; padding: 30px; border-radius: 12px; width: 300px; text-align: center;">
-                <h2 style="color: #fbbf24;">4</h2>
-                <p>Jogando Atualmente</p>
+            <div id="gridFavoritosPerfil" class="cards-horizontais"></div>
+        </section>
+
+        <section id="painelMontarBacklogPerfil">
+            <div class="section-header">
+                <div>
+                    <h2>🎮 Central Rápida do Perfil: Montar Meu Backlog &amp; Escrever Resenha</h2>
+                    <p>Adicione jogos ao seu diário ou publique uma nova análise diretamente aqui pelo seu perfil</p>
+                </div>
             </div>
-        </div>
+
+            <div class="painel-interativo-perfil">
+                <form id="formPerfilAddBacklog" class="form-padrao" style="margin: 0; max-width: 100%;">
+                    <h3 style="margin-bottom: 4px;">📚 Adicionar Jogo ao Meu Backlog</h3>
+                    <div class="campo-grupo">
+                        <label for="perfilJogoNome">Nome do Jogo</label>
+                        <input type="text" id="perfilJogoNome" required minlength="2" placeholder="Ex: Black Myth: Wukong, Red Dead 2...">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div class="campo-grupo">
+                            <label for="perfilJogoStatus">Estado do Jogo</label>
+                            <select id="perfilJogoStatus" required>
+                                <option value="Jogando">🎮 Jogando</option>
+                                <option value="Zerado">🏆 Zerado</option>
+                                <option value="Quero Jogar">📌 Pretendo Jogar</option>
+                                <option value="Pausado">⏸️ Pausado</option>
+                                <option value="Dropado">❌ Dropado</option>
+                            </select>
+                        </div>
+                        <div class="campo-grupo">
+                            <label for="perfilJogoPlataforma">Plataforma</label>
+                            <select id="perfilJogoPlataforma" required>
+                                <option value="PC">PC</option>
+                                <option value="PlayStation 5">PlayStation 5</option>
+                                <option value="Xbox Series X">Xbox Series X|S</option>
+                                <option value="Nintendo Switch">Nintendo Switch</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div class="campo-grupo">
+                            <label for="perfilJogoHoras">Horas Jogadas</label>
+                            <input type="text" id="perfilJogoHoras" required pattern="^[0-9]{1,4}$" value="25" placeholder="Ex: 40">
+                        </div>
+                        <div class="campo-grupo">
+                            <label for="perfilJogoNota">Nota (0 a 5)</label>
+                            <select id="perfilJogoNota" required>
+                                <option value="5">★★★★★ (5.0)</option>
+                                <option value="4.5">★★★★☆ (4.5)</option>
+                                <option value="4">★★★★ (4.0)</option>
+                                <option value="3">★★★ (3.0)</option>
+                                <option value="2">★★ (2.0)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit">Salvar Jogo no Meu Perfil</button>
+                </form>
+
+                <form id="formPerfilAddReview" class="form-padrao" style="margin: 0; max-width: 100%;">
+                    <h3 style="margin-bottom: 4px;">✍️ Publicar Análise (Review) no Perfil</h3>
+                    <div class="campo-grupo">
+                        <label for="perfilReviewJogo">Jogo Analisado</label>
+                        <input type="text" id="perfilReviewJogo" required minlength="2" placeholder="Ex: Elden Ring, Baldur's Gate 3...">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div class="campo-grupo">
+                            <label for="perfilReviewNota">Estrelas (0 a 5)</label>
+                            <select id="perfilReviewNota" required>
+                                <option value="5">★★★★★ (5/5)</option>
+                                <option value="4">★★★★☆ (4/5)</option>
+                                <option value="3">★★★☆☆ (3/5)</option>
+                                <option value="2">★★☆☆☆ (2/5)</option>
+                                <option value="1">★☆☆☆☆ (1/5)</option>
+                            </select>
+                        </div>
+                        <div class="campo-grupo">
+                            <label for="perfilReviewVeredito">Recomendação</label>
+                            <select id="perfilReviewVeredito" required>
+                                <option value="Recomendo">👍 Recomendo</option>
+                                <option value="Apenas em Promoção">🏷️ Só em Promoção</option>
+                                <option value="Não Recomendo">👎 Não Recomendo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="campo-grupo">
+                        <label for="perfilReviewTexto">Sua Resenha</label>
+                        <textarea id="perfilReviewTexto" rows="3" required minlength="10" placeholder="Escreva sua análise para exibir no seu perfil..."></textarea>
+                    </div>
+                    <button type="submit">Publicar Resenha no Meu Perfil</button>
+                </form>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <div>
+                    <h2>📋 Meu Diário de Jogos (Jogando, Pretendo Jogar, Zerados)</h2>
+                    <p>Todos os jogos registrados no seu perfil</p>
+                </div>
+                <a href="biblioteca.html" class="link-ver-tudo">Gerenciar tabela completa →</a>
+            </div>
+            <div class="tabela-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jogo</th>
+                            <th>Plataforma</th>
+                            <th>Status</th>
+                            <th>Horas</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoBacklogNoPerfil"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <div>
+                    <h2>💬 Minhas Análises Favoritas &amp; Publicadas</h2>
+                    <p>Resenhas escritas por você e exibidas no seu perfil</p>
+                </div>
+                <a href="analises.html" class="link-ver-tudo">Ver todas as análises →</a>
+            </div>
+            <div id="gridReviewsDoPerfil" class="reviews-grid"></div>
+        </section>
+
+        <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 44px;">
+            <div style="background-color: #1b2128; padding: 24px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.09);">
+                <h3 style="margin-bottom: 14px;">🏆 Top 5 Jogos do Ano</h3>
+                <ul id="listaTop5Ano"></ul>
+            </div>
+
+            <div style="background-color: #1b2128; padding: 24px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.09);">
+                <h3 style="margin-bottom: 14px;">📊 Jogos Zerados por Plataforma</h3>
+                <div class="tabela-wrapper" style="margin-bottom: 0;">
+                    <table style="min-width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Plataforma</th>
+                                <th>Total Finalizado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpoZeradosPlataforma"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="secaoEditarPerfil">
+            <div class="section-header">
+                <div>
+                    <h2>✏️ Customizar Perfil, Favoritos &amp; Top 5 (Dono da Conta)</h2>
+                    <p>Altere seu username, biografia (máx. 500 caracteres), seus 4 Jogos Favoritos e seu Top 5 do Ano</p>
+                </div>
+            </div>
+
+            <form id="formEditarPerfil" class="form-padrao">
+                <div class="campo-grupo">
+                    <label for="inputPerfilUsername">Username Único (máx. 20 caracteres)</label>
+                    <input type="text" id="inputPerfilUsername" required minlength="3" maxlength="20" pattern="^[a-zA-Z0-9_]{3,20}$" value="reinaldo_neto" placeholder="Seu username">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="inputPerfilPlataforma">Plataforma Preferida</label>
+                    <select id="inputPerfilPlataforma" required>
+                        <option value="PC &amp; PlayStation 5">PC &amp; PlayStation 5</option>
+                        <option value="PC (Steam / Epic)">PC (Steam / Epic)</option>
+                        <option value="PlayStation 5">PlayStation 5</option>
+                        <option value="Xbox Series X|S">Xbox Series X|S</option>
+                        <option value="Nintendo Switch">Nintendo Switch</option>
+                    </select>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="inputPerfilBio">Biografia do Perfil (máximo de 500 caracteres)</label>
+                    <textarea id="inputPerfilBio" rows="3" required minlength="10" maxlength="500">Estudantes de Desenvolvimento Front-End na Universidade Positivo. Apaixonados por RPGs, Soulslike e jogos indie.</textarea>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="inputPerfilFavoritos">Seus 4 Jogos Favoritos (separados por vírgula)</label>
+                    <input type="text" id="inputPerfilFavoritos" required value="Elden Ring, Baldur's Gate 3, The Witcher 3: Wild Hunt, Hollow Knight">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="inputPerfilTop5">Seu Top 5 Jogos do Ano (separados por vírgula)</label>
+                    <input type="text" id="inputPerfilTop5" required value="Baldur's Gate 3, Elden Ring, God of War Ragnarök, Cyberpunk 2077, Celeste">
+                </div>
+
+                <button type="submit">Salvar Customização do Perfil</button>
+            </form>
+        </section>
     </main>
-    <footer></footer>
+
+    <footer id="rodape-principal">
+        <div class="footer-bottom">
+            <span>&copy; 2026 MyGames Brasil — Universidade Positivo.</span>
+            <span>Reinaldo Celestino Da Silva Neto &amp; Gustavo Moreira Borges Arantes.</span>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

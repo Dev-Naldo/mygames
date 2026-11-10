@@ -1,76 +1,118 @@
+<!--
+  Projeto: MyGames - Backlog e Diário Gamer Brasileiro
+  Disciplina: DFEW.08 - Desenvolvimento Front-End para Web
+  Professor: Fabricio Olivo (Universidade Positivo)
+  Autores: Reinaldo Celestino Da Silva Neto e Gustavo Moreira Borges Arantes
+  Arquivo: comunidade.html (Página da Comunidade com Classes Utilitárias do Bootstrap 5)
+-->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidade - MY GAMES</title>
-    <!-- Importação do Bootstrap -->
+    <title>Comunidade &amp; Listas | MyGames</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-dark text-light">
+<body>
+    <header id="cabecalho-principal">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Logotipo MyGames">
+                <span>My<b>Games</b></span>
+            </a>
 
-    <!-- Menu (Navbar Bootstrap) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary mb-4">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">MyGames Community</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Voltar ao Início</a></li>
-                </ul>
-            </div>
+            <button type="button" id="btnMenuMobile" class="menu-mobile-btn" aria-label="Abrir Menu">☰</button>
+
+            <nav id="menuPrincipal" class="navheader" aria-label="Navegação Principal">
+                <a href="index.html">Início</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="detalhes.html">Jogo em Destaque</a>
+                <a href="biblioteca.html">Meu Backlog</a>
+                <a href="desejos.html">Lista de Desejos</a>
+                <a href="analises.html">Análises</a>
+                <a href="comunidade.html" class="ativo">Comunidade</a>
+                <a href="perfil.html">Perfil</a>
+                <a href="contato.html">Contato</a>
+                <a href="https://rawg.io/" target="_blank" rel="noopener noreferrer" class="link-externo">API RAWG ↗</a>
+                <a href="login.html" id="linkSessaoUsuario" class="btn-nav-login">Entrar / Conta</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <div class="container">
-        <!-- Alerta Bootstrap -->
-        <div class="alert alert-info alert-dismissible fade show" role="alert">
-            <strong>Novidade!</strong> O fórum da comunidade foi atualizado hoje.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <main class="container my-4">
+        <div class="alert alert-info alert-dismissible fade show bg-dark text-light border-info" role="alert">
+            <strong>Evento da Comunidade MyGames!</strong> As votações para o Top 5 Jogos do Ano já estão abertas para todos os membros.
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Fechar"></button>
         </div>
 
-        <div class="row mt-4">
-            <!-- Formulário Bootstrap -->
-            <div class="col-md-6 mb-4">
-                <div class="card bg-secondary text-light">
-                    <div class="card-body">
-                        <h5 class="card-title">Criar Tópico</h5>
-                        <form>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-5">
+                <div class="card bg-dark text-light border-secondary shadow">
+                    <div class="card-body p-4">
+                        <h4 class="card-title mb-3">📌 Criar Lista ou Tópico na Comunidade</h4>
+                        <form onsubmit="event.preventDefault(); alert('Tópico publicado na Comunidade com sucesso!'); this.reset();">
                             <div class="mb-3">
-                                <label for="tituloTopico" class="form-label">Título</label>
-                                <input type="text" class="form-control" id="tituloTopico" required>
+                                <label for="tituloTopico" class="form-label">Título da Lista ou Discussão</label>
+                                <input type="text" class="form-control bg-secondary text-white border-0" id="tituloTopico" required minlength="4" placeholder="Ex: Melhores RPGs para jogar no fim de semana">
                             </div>
                             <div class="mb-3">
-                                <label for="mensagemTopico" class="form-label">Mensagem</label>
-                                <textarea class="form-control" id="mensagemTopico" rows="3" required></textarea>
+                                <label for="categoriaTopico" class="form-label">Categoria</label>
+                                <select class="form-select bg-secondary text-white border-0" id="categoriaTopico" required>
+                                    <option value="Lista Recomendada">Lista de Jogos</option>
+                                    <option value="Debate">Debate / Análise</option>
+                                    <option value="Dicas e Guias">Guia de Troféus / Platina</option>
+                                </select>
                             </div>
-                            <!-- Botão Bootstrap -->
-                            <button type="submit" class="btn btn-primary">Publicar</button>
+                            <div class="mb-3">
+                                <label for="mensagemTopico" class="form-label">Descrição</label>
+                                <textarea class="form-control bg-secondary text-white border-0" id="mensagemTopico" rows="4" required minlength="10" placeholder="Compartilhe sua lista ou opinião com a comunidade..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-danger w-100 fw-bold">Publicar Tópico</button>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <!-- Cards Bootstrap -->
-            <div class="col-md-6">
-                <div class="card bg-secondary text-light mb-3">
+            <div class="col-lg-7">
+                <div class="card bg-dark text-light border-secondary mb-3 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">Discussão: Melhor RPG do ano</h5>
-                        <p class="card-text">Participe da votação sobre os indicados ao prêmio.</p>
-                        <a href="#" class="btn btn-outline-light btn-sm">Ver Tópico</a>
+                        <span class="badge bg-danger mb-2">Lista em Destaque</span>
+                        <h5 class="card-title">Os 10 Melhores Soulslike para Começar em 2026</h5>
+                        <p class="card-text text-secondary">Uma seleção curada por @reinaldo_neto para quem terminou Elden Ring e quer explorar o gênero.</p>
+                        <a href="explorar.html" class="btn btn-outline-light btn-sm">Explorar Jogos da Lista</a>
                     </div>
                 </div>
-                <div class="card bg-secondary text-light">
+
+                <div class="card bg-dark text-light border-secondary mb-3 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">Dicas de Hollow Knight</h5>
-                        <p class="card-text">Onde encontrar todos os amuletos escondidos.</p>
-                        <a href="#" class="btn btn-outline-light btn-sm">Ver Tópico</a>
+                        <span class="badge bg-success mb-2">Guia de Platina</span>
+                        <h5 class="card-title">Guia Completo de Amuletos e 112% em Hollow Knight</h5>
+                        <p class="card-text text-secondary">Publicado por @gustavo_arantes com dicas para os Panteões de Godhome.</p>
+                        <a href="detalhes.html?jogo=hollow-knight" class="btn btn-outline-light btn-sm">Ver Ficha do Jogo</a>
+                    </div>
+                </div>
+
+                <div class="card bg-dark text-light border-secondary shadow-sm">
+                    <div class="card-body">
+                        <span class="badge bg-info text-dark mb-2">Promoções da Semana</span>
+                        <h5 class="card-title">Jogos com até 75% de Desconto para sua Lista de Desejos</h5>
+                        <p class="card-text text-secondary">Confira os títulos marcados como "Apenas em Promoção" que entraram em oferta hoje.</p>
+                        <a href="desejos.html" class="btn btn-outline-light btn-sm">Ir para Lista de Desejos</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <!-- Scripts do Bootstrap para fechar o alerta -->
+    <footer id="rodape-principal">
+        <div class="footer-bottom">
+            <span>&copy; 2026 MyGames Brasil — Universidade Positivo.</span>
+            <span>Reinaldo Celestino Da Silva Neto &amp; Gustavo Moreira Borges Arantes.</span>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
