@@ -1,110 +1,244 @@
+<!--
+  Projeto: MyGames - Backlog e Diário Gamer Brasileiro
+  Disciplina: DFEW.08 - Desenvolvimento Front-End para Web
+  Professor: Fabricio Olivo (Universidade Positivo)
+  Autores: Reinaldo Celestino Da Silva Neto e Gustavo Moreira Borges Arantes
+  Arquivo: index.html (Página Inicial em HTML, CSS e JS Puros)
+-->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY GAMES</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>MyGames | Seu Backlog e Diário Gamer em Português</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .destaque-subtitulo {
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
-<header> 
-    <div class="logo">
-        <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" />
-        <a href="index.html">MyGames</a>
-    </div>
-    <nav class="navheader">
-        <a href="explorar.html">Explorar</a>
-        <a href="perfil.html">Entrar</a>
-        <a href="adicionar.html">Cadastrar</a>
-    </nav>
-</header>
-    <main>
-        <section class="hero" >
-            <div class="contenthero">
-                <span> Seu backlog e diário gamer em português </span>
-                <h1>Acompanhe, avalie e organize</br> toda a sua jornada nos games.</h1>
-                <p>Crie seu perfil, avalie os seus jogos, registre o que está jogando e acompanhe </br>as melhores resenhas com seus amigos</p>
-                <div class="button-hero">
-    <button onclick="window.location.href='adicionar.html'">Crie a sua conta GRÁTIS</button>
-    <button onclick="window.location.href='explorar.html'">Explorar Catálogo</button>
-</div>
-                    <button>Crie a sua conta GRÁTIS</button>
-                    <button>Explorar Catálogo</button>
+    <header id="cabecalho-principal">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Logotipo MyGames">
+                <span>My<b>Games</b></span>
+            </a>
 
+            <button type="button" id="btnMenuMobile" class="menu-mobile-btn" aria-label="Abrir Menu">☰</button>
 
-                </div>
+            <nav id="menuPrincipal" class="navheader" aria-label="Navegação Principal">
+                <a href="index.html" class="ativo">Início</a>
+                <a href="explorar.html">Explorar</a>
+                <a href="detalhes.html">Jogo em Destaque</a>
+                <a href="biblioteca.html">Meu Backlog</a>
+                <a href="desejos.html">Lista de Desejos</a>
+                <a href="analises.html">Análises</a>
+                <a href="comunidade.html">Comunidade</a>
+                <a href="perfil.html">Perfil</a>
+                <a href="contato.html">Contato</a>
+                <a href="https://rawg.io/" target="_blank" rel="noopener noreferrer" class="link-externo">API RAWG ↗</a>
+                <a href="login.html" id="linkSessaoUsuario" class="btn-nav-login">Entrar / Criar Conta</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container-principal">
+        <section id="banner-destaque" class="hero">
+            <span class="badge-hero destaque-subtitulo" style="border-color: rgba(6, 182, 212, 0.5);">🎮 Plataforma Brasileira de Backlog e Reviews</span>
+            <h1>Acompanhe, avalie e organize toda a sua jornada nos games.</h1>
+            <p>Monte seu diário de jogos zerados, gerencie sua fila de "Pretendo Jogar", crie sua Lista de Desejos para promoções e compartilhe análises completas em português.</p>
+            <div class="button-hero">
+                <a href="login.html" class="btn-primario">Criar Conta Grátis</a>
+                <a href="explorar.html" class="btn-secundario">Explorar Catálogo</a>
+                <a href="biblioteca.html" class="btn-secundario">Abrir Meu Backlog</a>
             </div>
-
         </section>
-       <section class="populargames">
+
+        <section class="stats-strip" aria-label="Resumo do Diário">
+            <div class="stat-box">
+                <div>
+                    <strong id="statTotalBacklog">5</strong>
+                    <p>Jogos Registrados no Backlog</p>
+                </div>
+                <span>📚</span>
+            </div>
+            <div class="stat-box">
+                <div>
+                    <strong id="statTotalZerados">2</strong>
+                    <p>Jogos Zerados na Temporada</p>
+                </div>
+                <span>🏆</span>
+            </div>
+            <div class="stat-box">
+                <div>
+                    <strong id="statTotalReviews">3</strong>
+                    <p>Análises Publicadas</p>
+                </div>
+                <span>✍️</span>
+            </div>
+        </section>
+
+        <section>
             <div class="section-header">
-                <h2>🔥 Jogos populares da semana</h2>
-                <p>Veja o que a comunidade está jogando e avaliando recentemente</p>
+                <div>
+                    <h2>🔥 Jogos Populares da Semana</h2>
+                    <p>Os títulos mais jogados, favoritados e avaliados pela comunidade brasileira</p>
+                </div>
+                <a href="explorar.html" class="link-ver-tudo">Ver catálogo completo →</a>
             </div>
 
-            <div class="gamergrids">
-                <!-- Card 1 -->
+            <div class="cards-horizontais">
                 <article class="game-card">
                     <div class="card-cover">
-                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.jpg" alt="Elden Ring">
+                        <span class="card-badge">RPG / Soulslike</span>
+                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.jpg" alt="Capa de Elden Ring">
                     </div>
                     <div class="card-info">
-                        <h3>Elden Ring</h3>
-                        <span class="rating">★ 4.9</span>
+                        <div>
+                            <h3>Elden Ring</h3>
+                            <p>Explore as Terras Intermédias neste RPG de ação aclamado mundialmente.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span class="rating">★ 4.9</span>
+                            <a href="detalhes.html?jogo=elden-ring" class="card-link">Ver Detalhes</a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Card 2 -->
                 <article class="game-card">
                     <div class="card-cover">
-                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2mvt.jpg" alt="Cyberpunk 2077">
+                        <span class="card-badge">RPG Tático</span>
+                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co670h.jpg" alt="Capa de Baldur's Gate 3">
                     </div>
                     <div class="card-info">
-                        <h3>Cyberpunk 2077</h3>
-                        <span class="rating">★ 4.4</span>
+                        <div>
+                            <h3>Baldur's Gate 3</h3>
+                            <p>Reúna seu grupo em uma campanha épica de Dungeons & Dragons.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span class="rating">★ 4.9</span>
+                            <a href="detalhes.html?jogo=baldurs-gate-3" class="card-link">Ver Detalhes</a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Card 3 -->
                 <article class="game-card">
                     <div class="card-cover">
-                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co670h.jpg" alt="Baldur's Gate 3">
+                        <span class="card-badge">Mundo Aberto</span>
+                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co7497.jpg" alt="Capa de Cyberpunk 2077">
                     </div>
                     <div class="card-info">
-                        <h3>Baldur's Gate 3</h3>
-                        <span class="rating">★ 4.9</span>
+                        <div>
+                            <h3>Cyberpunk 2077</h3>
+                            <p>Mercenários, implantes cibernéticos e escolhas intensas em Night City.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span class="rating">★ 4.5</span>
+                            <a href="detalhes.html?jogo=cyberpunk-2077" class="card-link">Ver Detalhes</a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Card 4 -->
                 <article class="game-card">
                     <div class="card-cover">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjTpzXvMEbvOrGr2p1O02qXzxtjxddf7gJrlBWYuJqQw&s=10" alt="Hollow Knight">
+                        <span class="card-badge">Metroidvania</span>
+                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1rgi.jpg" alt="Capa de Hollow Knight">
                     </div>
                     <div class="card-info">
-                        <h3>Hollow Knight</h3>
-                        <span class="rating">★ 4.8</span>
+                        <div>
+                            <h3>Hollow Knight</h3>
+                            <p>Desbrave as profundezas do reino esquecido de Hallownest.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span class="rating">★ 4.8</span>
+                            <a href="detalhes.html?jogo=hollow-knight" class="card-link">Ver Detalhes</a>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Card 5 -->
                 <article class="game-card">
                     <div class="card-cover">
-                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg" alt="The Witcher 3">
+                        <span class="card-badge">RPG / Fantasia</span>
+                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg" alt="Capa de The Witcher 3">
                     </div>
                     <div class="card-info">
-                        <h3>The Witcher 3</h3>
-                        <span class="rating">★ 4.8</span>
+                        <div>
+                            <h3>The Witcher 3</h3>
+                            <p>A jornada lendária de Geralt de Rívia em busca de Ciri.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span class="rating">★ 4.9</span>
+                            <a href="detalhes.html?jogo=the-witcher-3" class="card-link">Ver Detalhes</a>
+                        </div>
                     </div>
                 </article>
             </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <div>
+                    <h2>💬 Análises em Destaque da Comunidade</h2>
+                    <p>Confira as últimas resenhas com selo de recomendação dos jogadores</p>
+                </div>
+                <a href="analises.html" class="link-ver-tudo">Escrever uma análise →</a>
+            </div>
+
+            <div id="reviewsRecentesHome" class="reviews-grid"></div>
         </section>
     </main>
-    <footer>
 
+    <footer id="rodape-principal">
+        <div class="footer-container">
+            <div class="footer-col" style="max-width: 340px;">
+                <a href="index.html" class="logo" style="margin-bottom: 12px;">
+                    <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Logo MyGames">
+                    <span>MyGames</span>
+                </a>
+                <p style="font-size: 0.88rem; color: #94a3b8;">Plataforma brasileira estilo Backloggd para controle de biblioteca gamer, lista de desejos e análises da comunidade.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="explorar.html">Explorar Catálogo</a></li>
+                    <li><a href="detalhes.html">Detalhes e Multimídia</a></li>
+                    <li><a href="biblioteca.html">Meu Backlog</a></li>
+                    <li><a href="desejos.html">Lista de Desejos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Comunidade & Conta</h4>
+                <ul>
+                    <li><a href="analises.html">Análises de Jogos</a></li>
+                    <li><a href="comunidade.html">Fórum da Comunidade</a></li>
+                    <li><a href="perfil.html">Meu Perfil Gamer</a></li>
+                    <li><a href="login.html">Entrar / Cadastrar</a></li>
+                    <li><a href="contato.html">Contato e Equipe</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Referências Externas</h4>
+                <ul>
+                    <li><a href="https://www.backloggd.com/" target="_blank" rel="noopener noreferrer">Backloggd (Inspiração) ↗</a></li>
+                    <li><a href="https://rawg.io/apidocs" target="_blank" rel="noopener noreferrer">RAWG Video Games API ↗</a></li>
+                    <li><a href="https://www.igdb.com/" target="_blank" rel="noopener noreferrer">IGDB Database ↗</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; 2026 MyGames Brasil — Universidade Positivo (Desenvolvimento Front-End para Web).</span>
+            <span>Desenvolvido por Reinaldo Celestino Da Silva Neto &amp; Gustavo Moreira Borges Arantes.</span>
+        </div>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
