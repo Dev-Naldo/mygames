@@ -1,110 +1,114 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY GAMES</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Loja - MyGames</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>.txt-destaque { color: #c7d5e0; font-size: 1.05rem; }</style>
 </head>
-<body>
-    <header> <!-- Cabeçario com menu de navegação-->
-        <div class="logo" >
-            <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" />
-            <a href="#">MyGames</a>
-        </div>
-        <nav class="navheader">
-            <a href="#">Explorar</a>
-            <button href="#">Entrar</button>
-            <button href="#">Cadastrar</button>
-        </nav>
-
-        
-
-    </header>
-    <main> <!--Informações com botões para login e explorar-->
-        <section class="hero" >
-            <div class="contenthero">
-                <span> Seu backlog e diário gamer em português </span>
-                <h1>Acompanhe, avalie e organize</br> toda a sua jornada nos games.</h1>
-                <p>Crie seu perfil, avalie os seus jogos, registre o que está jogando e acompanhe </br>as melhores resenhas com seus amigos</p>
-                <div class="button-hero">
-                    <button>Crie a sua conta GRÁTIS</button>
-                    <button>Explorar Catálogo</button>
-
-
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-dark bg-steam-header">
+            <div class="container">
+                <a class="navbar-brand fw-bold brand-logo" href="index.html">MY<span>GAMES</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto align-items-xl-center">
+                        <a class="nav-link active" href="index.html">Loja</a>
+                        <a class="nav-link" href="explorar.html">Explorar</a>
+                        <a class="nav-link" href="biblioteca.html">Minhas Compras</a>
+                        <a class="nav-link" href="desejos.html">Lista de Desejos</a>
+                        <a class="nav-link" href="detalhes.html">Detalhes</a>
+                        <a class="nav-link" href="analises.html">Análises</a>
+                        <a class="nav-link" href="comunidade.html">Sobre</a>
+                        <a class="nav-link" href="perfil.html">Perfil</a>
+                        <a class="nav-link" href="contato.html">Suporte</a>
+                        <a class="nav-link" href="login.html">Entrar</a>
+                        <a class="nav-link ext-link" href="https://store.steampowered.com" target="_blank">Steam ↗</a>
+                    </div>
                 </div>
             </div>
-
-        </section>
-       <section class="populargames">
-            <div class="section-header">
-                <h2>🔥 Jogos populares da semana</h2>
-                <p>Veja o que a comunidade está jogando e avaliando recentemente</p>
-            </div>
-
-            <div class="gamergrids">
-                <!-- Card 1 -->
-                <article class="game-card">
-                    <div class="card-cover">
-                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.jpg" alt="Elden Ring">
-                    </div>
-                    <div class="card-info">
-                        <h3>Elden Ring</h3>
-                        <span class="rating">★ 4.9</span>
-                    </div>
-                </article>
-
-                <!-- Card 2 -->
-                <article class="game-card">
-                    <div class="card-cover">
-                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2mvt.jpg" alt="Cyberpunk 2077">
-                    </div>
-                    <div class="card-info">
-                        <h3>Cyberpunk 2077</h3>
-                        <span class="rating">★ 4.4</span>
-                    </div>
-                </article>
-
-                <!-- Card 3 -->
-                <article class="game-card">
-                    <div class="card-cover">
-                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co670h.jpg" alt="Baldur's Gate 3">
-                    </div>
-                    <div class="card-info">
-                        <h3>Baldur's Gate 3</h3>
-                        <span class="rating">★ 4.9</span>
-                    </div>
-                </article>
-
-                <!-- Card 4 -->
-                <article class="game-card">
-                    <div class="card-cover">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjTpzXvMEbvOrGr2p1O02qXzxtjxddf7gJrlBWYuJqQw&s=10" alt="Hollow Knight">
-                    </div>
-                    <div class="card-info">
-                        <h3>Hollow Knight</h3>
-                        <span class="rating">★ 4.8</span>
-                    </div>
-                </article>
-
-                <!-- Card 5 -->
-                <article class="game-card">
-                    <div class="card-cover">
-                        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg" alt="The Witcher 3">
-                    </div>
-                    <div class="card-info">
-                        <h3>The Witcher 3</h3>
-                        <span class="rating">★ 4.8</span>
-                    </div>
-                </article>
+        </nav>
+    </header>
+    <main class="container my-5 flex-grow-1">
+        <section class="hero-banner p-4 p-md-5 rounded-3 mb-5">
+            <div class="col-md-7">
+                <span class="badge bg-primary mb-2">CHAVE OFICIAL STEAM</span>
+                <h1 class="display-5 fw-bold text-white mb-3" style="letter-spacing: -0.5px;">Elden Ring: Shadow of the Erdtree</h1>
+                <p class="lead txt-destaque mb-4">Compre sua chave digital com desconto e ative imediatamente na sua conta Steam.</p>
+                <div class="d-flex gap-3">
+                    <a href="detalhes.html" class="btn btn-steam px-4 py-2">Ver Detalhes</a>
+                    <a href="desejos.html" class="btn btn-outline-light px-4 py-2" data-desejo="elden">+ Lista de Desejos</a>
+                </div>
             </div>
         </section>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="section-title mb-0">Ofertas Especiais</h2>
+            <a href="explorar.html" class="text-info text-decoration-none fw-semibold">Ver catálogo completo →</a>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100 store-card border-0">
+                    <img src="img/cyberpunk.png" class="card-img-top" alt="Cyberpunk 2077">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title text-white fw-bold mb-0">Cyberpunk 2077</h5>
+                            <span class="discount-badge">-50%</span>
+                        </div>
+                        <p class="card-text text-secondary small">Ação e RPG de mundo aberto ambientado em uma metrópole futurista.</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top border-secondary-subtle">
+                            <span class="text-white fw-bold">R$ 99,90</span>
+                            <button type="button" class="btn btn-sm btn-buy-static">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 store-card border-0">
+                    <img src="img/baldurs.png" class="card-img-top" alt="Baldur's Gate III">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title text-white fw-bold mb-0">Baldur's Gate III</h5>
+                            <span class="discount-badge">-20%</span>
+                        </div>
+                        <p class="card-text text-secondary small">Reúna seu grupo e retorne aos Reinos Esquecidos em uma história épica de escolhas.</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top border-secondary-subtle">
+                            <span class="text-white fw-bold">R$ 159,90</span>
+                            <button type="button" class="btn btn-sm btn-buy-static">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 store-card border-0">
+                    <img src="img/forza6.png" class="card-img-top" alt="Forza Horizon 6">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title text-white fw-bold mb-0">Forza Horizon 6</h5>
+                            <span class="discount-badge">-35%</span>
+                        </div>
+                        <p class="card-text text-secondary small">Lidere expedições de tirar o fôlego pelos cenários vibrantes e em constante evolução.</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top border-secondary-subtle">
+                            <span class="text-white fw-bold">R$ 129,00</span>
+                            <button type="button" class="btn btn-sm btn-buy-static">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-    <footer>
-
+    <footer class="bg-steam-header text-center py-4 mt-auto border-top border-dark-subtle">
+        <div class="container">
+            <p class="mb-1 text-secondary">&copy; 2026 MyGames Corporation. Inspirado em Steam & Epic Games Store.</p>
+        </div>
     </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

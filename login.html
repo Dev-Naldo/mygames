@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar - MyGames</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-dark bg-steam-header">
+            <div class="container">
+                <a class="navbar-brand fw-bold brand-logo" href="index.html">MY<span>GAMES</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto align-items-xl-center">
+                        <a class="nav-link" href="index.html">Loja</a>
+                        <a class="nav-link" href="explorar.html">Explorar</a>
+                        <a class="nav-link" href="biblioteca.html">Minhas Compras</a>
+                        <a class="nav-link" href="desejos.html">Lista de Desejos</a>
+                        <a class="nav-link" href="detalhes.html">Detalhes</a>
+                        <a class="nav-link" href="analises.html">Análises</a>
+                        <a class="nav-link" href="comunidade.html">Sobre</a>
+                        <a class="nav-link" href="perfil.html">Perfil</a>
+                        <a class="nav-link" href="contato.html">Suporte</a>
+                        <a class="nav-link active" href="login.html">Entrar</a>
+                        <a class="nav-link ext-link" href="https://store.steampowered.com" target="_blank">Steam ↗</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container my-5 flex-grow-1">
+
+        <div class="row justify-content-center align-items-center py-4">
+            <div class="col-md-5">
+                <div class="card store-card border-0 p-4 p-md-5">
+                    <h3 class="text-white fw-bold mb-1">Iniciar Sessão</h3>
+                    <p class="text-secondary small mb-4">Use sua conta MyGames para acessar sua biblioteca.</p>
+                    <div id="alertaLogin" class="alert d-none" role="alert"></div>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="usuario" class="form-label text-light small fw-semibold">NOME DA CONTA</label>
+                            <input type="text" class="form-control form-steam req-field" id="usuario" required minlength="3" placeholder="Digite seu usuário">
+                        </div>
+                        <div class="mb-4">
+                            <label for="senha" class="form-label text-light small fw-semibold">SENHA</label>
+                            <input type="password" class="form-control form-steam req-field" id="senha" required minlength="6" placeholder="••••••••">
+                        </div>
+                        <button type="submit" class="btn btn-steam w-100 py-2">Iniciar Sessão</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-steam-header text-center py-4 mt-auto border-top border-dark-subtle">
+        <div class="container">
+            <p class="mb-1 text-secondary">&copy; 2026 MyGames Corporation. Inspirado em Steam & Epic Games Store.</p>
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

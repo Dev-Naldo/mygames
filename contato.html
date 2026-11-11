@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte - MyGames</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-dark bg-steam-header">
+            <div class="container">
+                <a class="navbar-brand fw-bold brand-logo" href="index.html">MY<span>GAMES</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto align-items-xl-center">
+                        <a class="nav-link" href="index.html">Loja</a>
+                        <a class="nav-link" href="explorar.html">Explorar</a>
+                        <a class="nav-link" href="biblioteca.html">Minhas Compras</a>
+                        <a class="nav-link" href="desejos.html">Lista de Desejos</a>
+                        <a class="nav-link" href="detalhes.html">Detalhes</a>
+                        <a class="nav-link" href="analises.html">Análises</a>
+                        <a class="nav-link" href="comunidade.html">Sobre</a>
+                        <a class="nav-link" href="perfil.html">Perfil</a>
+                        <a class="nav-link active" href="contato.html">Suporte</a>
+                        <a class="nav-link" href="login.html">Entrar</a>
+                        <a class="nav-link ext-link" href="https://store.steampowered.com" target="_blank">Steam ↗</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container my-5 flex-grow-1">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card store-card border-0 p-4 p-md-5">
+                    <h2 class="section-title mb-2">Suporte ao Jogador</h2>
+                    <p class="text-secondary mb-4">Envie seu chamado. Os dados são validados e registrados no LocalStorage.</p>
+
+                    <div id="alertaForm" class="alert d-none" role="alert"></div>
+
+                    <form id="contatoForm">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label text-light fw-semibold">Nome de Usuário:</label>
+                            <input type="text" class="form-control form-steam req-field" id="nome" required minlength="3" placeholder="Ex: Gustavo_CWB">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-light fw-semibold">E-mail da Conta:</label>
+                            <input type="email" class="form-control form-steam req-field" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="usuario@dominio.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="assunto" class="form-label text-light fw-semibold">Categoria do Chamado:</label>
+                            <select class="form-select form-steam req-field" id="assunto" required>
+                                <option value="">Selecione uma categoria...</option>
+                                <option value="Problema Tecnico">Problema Técnico / Instalação</option>
+                                <option value="Pagamentos">Cobrança e Reembolso</option>
+                                <option value="Conta">Recuperação de Conta</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="mensagem" class="form-label text-light fw-semibold">Descrição Detalhada:</label>
+                            <textarea class="form-control form-steam req-field" id="mensagem" rows="4" required minlength="10" placeholder="Descreva o que aconteceu..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-steam w-100 py-2 btn-hover">Enviar Chamado ao Suporte</button>
+                    </form>
+
+                    <div class="mt-4 pt-3 border-top border-secondary-subtle">
+                        <h6 class="text-white mb-2">Chamados Salvos no Navegador (LocalStorage):</h6>
+                        <ul id="listaChamados" class="list-group list-group-flush small"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-steam-header text-center py-4 mt-auto border-top border-dark-subtle">
+        <div class="container">
+            <p class="mb-1 text-secondary">&copy; 2026 MyGames Corporation. Inspirado em Steam & Epic Games Store.</p>
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

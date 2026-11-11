@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar - MyGames</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-dark bg-steam-header">
+            <div class="container">
+                <a class="navbar-brand fw-bold brand-logo" href="index.html">MY<span>GAMES</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto align-items-xl-center">
+                        <a class="nav-link" href="index.html">Loja</a>
+                        <a class="nav-link active" href="explorar.html">Explorar</a>
+                        <a class="nav-link" href="biblioteca.html">Minhas Compras</a>
+                        <a class="nav-link" href="desejos.html">Lista de Desejos</a>
+                        <a class="nav-link" href="detalhes.html">Detalhes</a>
+                        <a class="nav-link" href="analises.html">Análises</a>
+                        <a class="nav-link" href="comunidade.html">Sobre</a>
+                        <a class="nav-link" href="perfil.html">Perfil</a>
+                        <a class="nav-link" href="contato.html">Suporte</a>
+                        <a class="nav-link" href="login.html">Entrar</a>
+                        <a class="nav-link ext-link" href="https://store.steampowered.com" target="_blank">Steam ↗</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container my-5 flex-grow-1">
+
+        <h2 class="section-title mb-2">Explorar por Categorias</h2>
+        <p class="text-secondary mb-4">Navegue pelo catálogo utilizando layout estruturado em CSS Grid.</p>
+
+        <div class="grid-gallery">
+            <div class="grid-item" style="background-image: url('img/cat-acao.jpg')">
+                <div class="grid-overlay">
+                    <h4>Ação & FPS</h4>
+                    <span>1.240 títulos</span>
+                </div>
+            </div>
+            <div class="grid-item" style="background-image: url('img/cat-rpg.jpg')">
+                <div class="grid-overlay">
+                    <h4>RPG de Aventura</h4>
+                    <span>890 títulos</span>
+                </div>
+            </div>
+            <div class="grid-item" style="background-image: url('img/cat-corrida.jpg')">
+                <div class="grid-overlay">
+                    <h4>Corrida & Simulação</h4>
+                    <span>430 títulos</span>
+                </div>
+            </div>
+            <div class="grid-item" style="background-image: url('img/cat-vr.jpg')">
+                <div class="grid-overlay">
+                    <h4>Realidade Virtual</h4>
+                    <span>210 títulos</span>
+                </div>
+            </div>
+            <div class="grid-item" style="background-image: url('img/cat-estrategia.jpg')">
+                <div class="grid-overlay">
+                    <h4>Estratégia & RTS</h4>
+                    <span>670 títulos</span>
+                </div>
+            </div>
+            <div class="grid-item" style="background-image: url('img/cat-indie.jpg')">
+                <div class="grid-overlay">
+                    <h4>Indie & Retrô</h4>
+                    <span>2.150 títulos</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-steam-header text-center py-4 mt-auto border-top border-dark-subtle">
+        <div class="container">
+            <p class="mb-1 text-secondary">&copy; 2026 MyGames Corporation. Inspirado em Steam & Epic Games Store.</p>
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Compras - MyGames</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-dark bg-steam-header">
+            <div class="container">
+                <a class="navbar-brand fw-bold brand-logo" href="index.html">MY<span>GAMES</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto align-items-xl-center">
+                        <a class="nav-link" href="index.html">Loja</a>
+                        <a class="nav-link" href="explorar.html">Explorar</a>
+                        <a class="nav-link active" href="biblioteca.html">Minhas Compras</a>
+                        <a class="nav-link" href="desejos.html">Lista de Desejos</a>
+                        <a class="nav-link" href="detalhes.html">Detalhes</a>
+                        <a class="nav-link" href="analises.html">Análises</a>
+                        <a class="nav-link" href="comunidade.html">Sobre</a>
+                        <a class="nav-link" href="perfil.html">Perfil</a>
+                        <a class="nav-link" href="contato.html">Suporte</a>
+                        <a class="nav-link" href="login.html">Entrar</a>
+                        <a class="nav-link ext-link" href="https://store.steampowered.com" target="_blank">Steam ↗</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container my-5 flex-grow-1">
+
+        <h2 class="section-title mb-2">Minhas Compras & Chaves Steam</h2>
+        <p class="text-secondary mb-4">Acesse os códigos de ativação (Steam Keys) dos jogos adquiridos e confira os conteúdos bônus de mídia.</p>
+
+        <div class="row g-4">
+            <div class="col-lg-7">
+                <div class="card store-card border-0 p-4 h-100">
+                    <h4 class="text-white mb-2">Trailer Oficial de Lançamento</h4>
+                    <p class="text-secondary small mb-3">Reprodutor de vídeo nativo HTML5 com controles habilitados.</p>
+                    <div class="ratio ratio-16x9 rounded overflow-hidden bg-black">
+                        <video controls preload="metadata" playsinline poster="img/banner.jpg" src="video/trailer.mp4" style="width: 100%; height: 100%; object-fit: cover;">
+                            <source src="video/trailerr.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos HTML5.
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="card store-card border-0 p-4 h-100 d-flex flex-column">
+                    <h4 class="text-white mb-2">Trilha Sonora Bônus (OST)</h4>
+                    <p class="text-secondary small mb-4">Brinde digital incluso na compra da chave oficial.</p>
+                    <div class="p-3 rounded bg-dark-panel border border-secondary-subtle mb-4">
+                        <div class="fw-bold text-white mb-2">01. Main Theme - Orchestral Mix</div>
+                        <audio controls preload="metadata" class="w-100" src="audio/trilha.mp3">
+                            <source src="audio/trilha.mp3" type="audio/mpeg">
+                            Seu navegador não suporta áudio HTML5.
+                        </audio>
+                    </div>
+                    <div class="mt-auto">
+                        <h6 class="text-white mb-2">Suas Chaves de Ativação (Steam Key)</h6>
+                        <ul class="list-group list-group-flush bg-transparent">
+                            <li class="list-group-item bg-transparent text-secondary border-secondary-subtle px-0 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong class="text-white d-block">Elden Ring: Shadow of the Erdtree</strong>
+                                    <small class="text-info">Ativação: Steam PC</small>
+                                </div>
+                                <span class="badge bg-dark border border-secondary text-light font-monospace p-2">ELDN-94KX-77PQ-2026</span>
+                            </li>
+                            <li class="list-group-item bg-transparent text-secondary border-secondary-subtle px-0 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong class="text-white d-block">Cyberpunk 2077</strong>
+                                    <small class="text-info">Ativação: Steam PC</small>
+                                </div>
+                                <span class="badge bg-dark border border-secondary text-light font-monospace p-2">CYBR-2077-X89A-KEY1</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-steam-header text-center py-4 mt-auto border-top border-dark-subtle">
+        <div class="container">
+            <p class="mb-1 text-secondary">&copy; 2026 MyGames Keys. Loja Digital de Chaves Oficiais com Ativação Steam.</p>
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
