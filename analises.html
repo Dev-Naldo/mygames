@@ -1,120 +1,88 @@
-<!--
-  Projeto: MyGames - Backlog e Diário Gamer Brasileiro
-  Disciplina: DFEW.08 - Desenvolvimento Front-End para Web
-  Professor: Fabricio Olivo (Universidade Positivo)
-  Autores: Reinaldo Celestino Da Silva Neto e Gustavo Moreira Borges Arantes
-  Arquivo: analises.html (Publicação de Reviews com Notas de 0 a 5 e Selos de Recomendação)
--->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análises &amp; Reviews | MyGames</title>
+    <title>Análises - MyGames</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header id="cabecalho-principal">
-        <div class="navbar-container">
-            <a href="index.html" class="logo">
-                <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Logotipo MyGames">
-                <span>My<b>Games</b></span>
-            </a>
-
-            <button type="button" id="btnMenuMobile" class="menu-mobile-btn" aria-label="Abrir Menu">☰</button>
-
-            <nav id="menuPrincipal" class="navheader" aria-label="Navegação Principal">
-                <a href="index.html">Início</a>
-                <a href="explorar.html">Explorar</a>
-                <a href="detalhes.html">Jogo em Destaque</a>
-                <a href="biblioteca.html">Meu Backlog</a>
-                <a href="desejos.html">Lista de Desejos</a>
-                <a href="analises.html" class="ativo">Análises</a>
-                <a href="comunidade.html">Comunidade</a>
-                <a href="perfil.html">Perfil</a>
-                <a href="contato.html">Contato</a>
-                <a href="https://rawg.io/" target="_blank" rel="noopener noreferrer" class="link-externo">API RAWG ↗</a>
-                <a href="login.html" id="linkSessaoUsuario" class="btn-nav-login">Entrar / Conta</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="container-principal">
-        <section class="section-header">
-            <div>
-                <h2>✍️ Publicar Nova Análise (Review)</h2>
-                <p>Avalie de 0 a 5 estrelas e escolha entre Recomendar, Não Recomendar ou Apenas em Promoção</p>
-            </div>
-        </section>
-
-        <form id="formPublicarAnalise" class="form-padrao">
-            <div class="campo-grupo">
-                <label for="analiseNomeJogo">Jogo Avaliado</label>
-                <input type="text" id="analiseNomeJogo" required minlength="2" placeholder="Ex: Elden Ring, Baldur's Gate 3, Celeste...">
-            </div>
-
-            <div class="campo-grupo">
-                <label for="analiseUsuario">Seu Username</label>
-                <input type="text" id="analiseUsuario" required minlength="3" pattern="^[a-zA-Z0-9_]{3,20}$" placeholder="Ex: reinaldo_neto (apenas letras, números e _)">
-            </div>
-
-            <div class="campo-grupo">
-                <label for="analisePlataforma">Plataforma em que Jogou</label>
-                <select id="analisePlataforma" required>
-                    <option value="PC">PC</option>
-                    <option value="PlayStation 5">PlayStation 5</option>
-                    <option value="Xbox Series X">Xbox Series X|S</option>
-                    <option value="Nintendo Switch">Nintendo Switch</option>
-                </select>
-            </div>
-
-            <div class="campo-grupo">
-                <label for="analiseNota">Nota (0 a 5 Estrelas)</label>
-                <select id="analiseNota" required>
-                    <option value="5">★★★★★ (5 Estrelas)</option>
-                    <option value="4">★★★★☆ (4 Estrelas)</option>
-                    <option value="3">★★★☆☆ (3 Estrelas)</option>
-                    <option value="2">★★☆☆☆ (2 Estrelas)</option>
-                    <option value="1">★☆☆☆☆ (1 Estrela)</option>
-                    <option value="0">☆☆☆☆☆ (0 Estrelas)</option>
-                </select>
-            </div>
-
-            <div class="campo-grupo">
-                <label for="analiseRecomendacao">Veredito de Recomendação</label>
-                <select id="analiseRecomendacao" required>
-                    <option value="Recomendo">👍 Recomendo</option>
-                    <option value="Apenas em Promoção">🏷️ Apenas em Promoção</option>
-                    <option value="Não Recomendo">👎 Não Recomendo</option>
-                </select>
-            </div>
-
-            <div class="campo-grupo">
-                <label for="analiseTexto">Sua Resenha em Texto</label>
-                <textarea id="analiseTexto" rows="4" required minlength="15" placeholder="Escreva os pontos positivos, negativos e sua experiência com o jogo..."></textarea>
-            </div>
-
-            <button type="submit">Publicar Análise na Comunidade</button>
-        </form>
-
-        <section>
-            <div class="section-header">
-                <div>
-                    <h2>🌟 Mural de Análises dos Jogadores</h2>
-                    <p>Todas as resenhas publicadas na plataforma</p>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-dark bg-steam-header">
+            <div class="container">
+                <a class="navbar-brand fw-bold brand-logo" href="index.html">MY<span>GAMES</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto align-items-xl-center">
+                        <a class="nav-link" href="index.html">Loja</a>
+                        <a class="nav-link" href="explorar.html">Explorar</a>
+                        <a class="nav-link" href="biblioteca.html">Minhas Compras</a>
+                        <a class="nav-link" href="desejos.html">Lista de Desejos</a>
+                        <a class="nav-link" href="detalhes.html">Detalhes</a>
+                        <a class="nav-link active" href="analises.html">Análises</a>
+                        <a class="nav-link" href="comunidade.html">Sobre</a>
+                        <a class="nav-link" href="perfil.html">Perfil</a>
+                        <a class="nav-link" href="contato.html">Suporte</a>
+                        <a class="nav-link" href="login.html">Entrar</a>
+                        <a class="nav-link ext-link" href="https://store.steampowered.com" target="_blank">Steam ↗</a>
+                    </div>
                 </div>
             </div>
-            <div id="muralTodasAnalises" class="reviews-grid"></div>
-        </section>
-    </main>
+        </nav>
+    </header>
+    <main class="container my-5 flex-grow-1">
 
-    <footer id="rodape-principal">
-        <div class="footer-bottom">
-            <span>&copy; 2026 MyGames Brasil — Universidade Positivo.</span>
-            <span>Reinaldo Celestino Da Silva Neto &amp; Gustavo Moreira Borges Arantes.</span>
+        <h2 class="section-title mb-2">Análises e Notas da Crítica</h2>
+        <p class="text-secondary mb-4">Comparativo oficial das notas agregadas dos principais lançamentos do ano.</p>
+
+        <div class="table-responsive rounded-3 overflow-hidden border border-secondary-subtle">
+            <table class="table table-dark table-hover mb-0 custom-table">
+                <thead>
+                    <tr>
+                        <th class="py-3 px-4">Título do Jogo</th>
+                        <th class="py-3 px-4">Metacritic</th>
+                        <th class="py-3 px-4">Plataforma Principal</th>
+                        <th class="py-3 px-4">Gênero</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="py-3 px-4 fw-semibold text-white">Elden Ring: Shadow of the Erdtree</td>
+                        <td class="py-3 px-4"><span class="score-badge">96</span></td>
+                        <td class="py-3 px-4 text-secondary">PC / PS5 / Xbox</td>
+                        <td class="py-3 px-4 text-secondary">RPG de Ação</td>
+                    </tr>
+                    <tr>
+                        <td class="py-3 px-4 fw-semibold text-white">Baldur's Gate III</td>
+                        <td class="py-3 px-4"><span class="score-badge">96</span></td>
+                        <td class="py-3 px-4 text-secondary">PC / PS5</td>
+                        <td class="py-3 px-4 text-secondary">RPG Estratégico</td>
+                    </tr>
+                    <tr>
+                        <td class="py-3 px-4 fw-semibold text-white">God of War Ragnarök</td>
+                        <td class="py-3 px-4"><span class="score-badge">94</span></td>
+                        <td class="py-3 px-4 text-secondary">PlayStation 5 / PC</td>
+                        <td class="py-3 px-4 text-secondary">Aventura</td>
+                    </tr>
+                    <tr>
+                        <td class="py-3 px-4 fw-semibold text-white">Cyberpunk 2077: Phantom Liberty</td>
+                        <td class="py-3 px-4"><span class="score-badge">90</span></td>
+                        <td class="py-3 px-4 text-secondary">PC / Xbox Series</td>
+                        <td class="py-3 px-4 text-secondary">Sci-Fi RPG</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer class="bg-steam-header text-center py-4 mt-auto border-top border-dark-subtle">
+        <div class="container">
+            <p class="mb-1 text-secondary">&copy; 2026 MyGames Corporation. Inspirado em Steam & Epic Games Store.</p>
         </div>
     </footer>
-
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,101 +1,67 @@
-<!--
-  Projeto: MyGames - Backlog e Diário Gamer Brasileiro
-  Disciplina: DFEW.08 - Desenvolvimento Front-End para Web
-  Professor: Fabricio Olivo (Universidade Positivo)
-  Autores: Reinaldo Celestino Da Silva Neto e Gustavo Moreira Borges Arantes
-  Arquivo: login.html (Autenticação, Registro de Conta e Sessão Persistente)
--->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar ou Criar Conta | MyGames</title>
+    <title>Entrar - MyGames</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header id="cabecalho-principal">
-        <div class="navbar-container">
-            <a href="index.html" class="logo">
-                <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Logotipo MyGames">
-                <span>My<b>Games</b></span>
-            </a>
-
-            <button type="button" id="btnMenuMobile" class="menu-mobile-btn" aria-label="Abrir Menu">☰</button>
-
-            <nav id="menuPrincipal" class="navheader" aria-label="Navegação Principal">
-                <a href="index.html">Início</a>
-                <a href="explorar.html">Explorar</a>
-                <a href="detalhes.html">Jogo em Destaque</a>
-                <a href="biblioteca.html">Meu Backlog</a>
-                <a href="desejos.html">Lista de Desejos</a>
-                <a href="analises.html">Análises</a>
-                <a href="comunidade.html">Comunidade</a>
-                <a href="perfil.html">Perfil</a>
-                <a href="contato.html">Contato</a>
-                <a href="https://rawg.io/" target="_blank" rel="noopener noreferrer" class="link-externo">API RAWG ↗</a>
-                <a href="login.html" id="linkSessaoUsuario" class="btn-nav-login">Entrar / Conta</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="container-principal">
-        <section class="section-header">
-            <div>
-                <h2>🔐 Autenticação e Contas MyGames</h2>
-                <p>Inicie sua sessão persistente ou cadastre seu username único para liberar edição de perfil e análises</p>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-dark bg-steam-header">
+            <div class="container">
+                <a class="navbar-brand fw-bold brand-logo" href="index.html">MY<span>GAMES</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto align-items-xl-center">
+                        <a class="nav-link" href="index.html">Loja</a>
+                        <a class="nav-link" href="explorar.html">Explorar</a>
+                        <a class="nav-link" href="biblioteca.html">Minhas Compras</a>
+                        <a class="nav-link" href="desejos.html">Lista de Desejos</a>
+                        <a class="nav-link" href="detalhes.html">Detalhes</a>
+                        <a class="nav-link" href="analises.html">Análises</a>
+                        <a class="nav-link" href="comunidade.html">Sobre</a>
+                        <a class="nav-link" href="perfil.html">Perfil</a>
+                        <a class="nav-link" href="contato.html">Suporte</a>
+                        <a class="nav-link active" href="login.html">Entrar</a>
+                        <a class="nav-link ext-link" href="https://store.steampowered.com" target="_blank">Steam ↗</a>
+                    </div>
+                </div>
             </div>
-        </section>
+        </nav>
+    </header>
+    <main class="container my-5 flex-grow-1">
 
-        <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; align-items: start;">
-            <form id="formLoginConta" class="form-padrao" style="margin: 0; max-width: 100%;">
-                <h3 style="margin-bottom: 6px;">Já possui conta? Entrar</h3>
-                <div class="campo-grupo">
-                    <label for="loginUsername">Username</label>
-                    <input type="text" id="loginUsername" required minlength="3" pattern="^[a-zA-Z0-9_]{3,20}$" placeholder="Ex: reinaldo_neto">
+        <div class="row justify-content-center align-items-center py-4">
+            <div class="col-md-5">
+                <div class="card store-card border-0 p-4 p-md-5">
+                    <h3 class="text-white fw-bold mb-1">Iniciar Sessão</h3>
+                    <p class="text-secondary small mb-4">Use sua conta MyGames para acessar sua biblioteca.</p>
+                    <div id="alertaLogin" class="alert d-none" role="alert"></div>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="usuario" class="form-label text-light small fw-semibold">NOME DA CONTA</label>
+                            <input type="text" class="form-control form-steam req-field" id="usuario" required minlength="3" placeholder="Digite seu usuário">
+                        </div>
+                        <div class="mb-4">
+                            <label for="senha" class="form-label text-light small fw-semibold">SENHA</label>
+                            <input type="password" class="form-control form-steam req-field" id="senha" required minlength="6" placeholder="••••••••">
+                        </div>
+                        <button type="submit" class="btn btn-steam w-100 py-2">Iniciar Sessão</button>
+                    </form>
                 </div>
-                <div class="campo-grupo">
-                    <label for="loginSenha">Senha</label>
-                    <input type="password" id="loginSenha" required minlength="6" placeholder="Mínimo de 6 caracteres">
-                </div>
-                <button type="submit">Entrar na Plataforma</button>
-            </form>
-
-            <form id="formRegistroConta" class="form-padrao" style="margin: 0; max-width: 100%;">
-                <h3 style="margin-bottom: 6px;">Novo por aqui? Criar Conta Grátis</h3>
-                <div class="campo-grupo">
-                    <label for="regUsername">Username Único (3 a 20 caracteres)</label>
-                    <input type="text" id="regUsername" required minlength="3" maxlength="20" pattern="^[a-zA-Z0-9_]{3,20}$" placeholder="Ex: gustavo_arantes">
-                </div>
-                <div class="campo-grupo">
-                    <label for="regEmail">E-mail</label>
-                    <input type="email" id="regEmail" required placeholder="seuemail@exemplo.com.br">
-                </div>
-                <div class="campo-grupo">
-                    <label for="regPlataforma">Plataforma Principal</label>
-                    <select id="regPlataforma" required>
-                        <option value="PC">PC</option>
-                        <option value="PlayStation 5">PlayStation 5</option>
-                        <option value="Xbox Series X">Xbox Series X|S</option>
-                        <option value="Nintendo Switch">Nintendo Switch</option>
-                    </select>
-                </div>
-                <div class="campo-grupo">
-                    <label for="regSenha">Senha Segura</label>
-                    <input type="password" id="regSenha" required minlength="6" placeholder="Mínimo de 6 caracteres">
-                </div>
-                <button type="submit">Criar Conta Gamer</button>
-            </form>
-        </section>
+            </div>
+        </div>
     </main>
-
-    <footer id="rodape-principal">
-        <div class="footer-bottom">
-            <span>&copy; 2026 MyGames Brasil — Universidade Positivo.</span>
-            <span>Reinaldo Celestino Da Silva Neto &amp; Gustavo Moreira Borges Arantes.</span>
+    <footer class="bg-steam-header text-center py-4 mt-auto border-top border-dark-subtle">
+        <div class="container">
+            <p class="mb-1 text-secondary">&copy; 2026 MyGames Corporation. Inspirado em Steam & Epic Games Store.</p>
         </div>
     </footer>
-
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

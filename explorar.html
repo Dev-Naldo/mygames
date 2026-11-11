@@ -1,128 +1,88 @@
-<!--
-  Projeto: MyGames - Backlog e Diário Gamer Brasileiro
-  Disciplina: DFEW.08 - Desenvolvimento Front-End para Web
-  Professor: Fabricio Olivo (Universidade Positivo)
-  Autores: Reinaldo Celestino Da Silva Neto e Gustavo Moreira Borges Arantes
-  Arquivo: explorar.html (Catálogo de Jogos, Filtros Dinâmicos e Integração Real via API Externa)
--->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorar Catálogo &amp; API | MyGames</title>
+    <title>Explorar - MyGames</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header id="cabecalho-principal">
-        <div class="navbar-container">
-            <a href="index.html" class="logo">
-                <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Logotipo MyGames">
-                <span>My<b>Games</b></span>
-            </a>
-
-            <button type="button" id="btnMenuMobile" class="menu-mobile-btn" aria-label="Abrir Menu">☰</button>
-
-            <nav id="menuPrincipal" class="navheader" aria-label="Navegação Principal">
-                <a href="index.html">Início</a>
-                <a href="explorar.html" class="ativo">Explorar</a>
-                <a href="detalhes.html">Jogo em Destaque</a>
-                <a href="biblioteca.html">Meu Backlog</a>
-                <a href="desejos.html">Lista de Desejos</a>
-                <a href="analises.html">Análises</a>
-                <a href="comunidade.html">Comunidade</a>
-                <a href="perfil.html">Perfil</a>
-                <a href="contato.html">Contato</a>
-                <a href="https://rawg.io/apidocs" target="_blank" rel="noopener noreferrer" class="link-externo">API Docs ↗</a>
-                <a href="login.html" id="linkSessaoUsuario" class="btn-nav-login">Entrar / Conta</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="container-principal">
-        <section style="background-color: #1b2128; border: 1px solid rgba(234, 55, 122, 0.35); border-radius: 8px; padding: 22px; margin-bottom: 28px;">
-            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 14px;">
-                <div>
-                    <span class="badge-hero" style="margin-bottom: 6px;">🌐 Integração Externa de Jogos em Tempo Real</span>
-                    <h2 style="font-size: 1.35rem;">Importar Qualquer Jogo da Base Mundial (API Externa + RAWG Key Opcional)</h2>
-                    <p style="color: #9ab; font-size: 0.88rem;">Pesquise qualquer jogo do mundo (ex: <em>GTA V, Resident Evil 4, Dark Souls, Black Myth Wukong, Skyrim</em>) para importar capa e metadados sem cadastrar na mão!</p>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-dark bg-steam-header">
+            <div class="container">
+                <a class="navbar-brand fw-bold brand-logo" href="index.html">MY<span>GAMES</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto align-items-xl-center">
+                        <a class="nav-link" href="index.html">Loja</a>
+                        <a class="nav-link active" href="explorar.html">Explorar</a>
+                        <a class="nav-link" href="biblioteca.html">Minhas Compras</a>
+                        <a class="nav-link" href="desejos.html">Lista de Desejos</a>
+                        <a class="nav-link" href="detalhes.html">Detalhes</a>
+                        <a class="nav-link" href="analises.html">Análises</a>
+                        <a class="nav-link" href="comunidade.html">Sobre</a>
+                        <a class="nav-link" href="perfil.html">Perfil</a>
+                        <a class="nav-link" href="contato.html">Suporte</a>
+                        <a class="nav-link" href="login.html">Entrar</a>
+                        <a class="nav-link ext-link" href="https://store.steampowered.com" target="_blank">Steam ↗</a>
+                    </div>
                 </div>
             </div>
+        </nav>
+    </header>
+    <main class="container my-5 flex-grow-1">
 
-            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                <input type="text" id="inputPesquisaApiReal" style="flex: 2; min-width: 240px;" placeholder="Digite o nome de qualquer jogo para buscar na API online...">
-                <input type="text" id="inputRawgApiKey" style="flex: 1; min-width: 190px;" placeholder="RAWG API Key (opcional)">
-                <button type="button" id="btnBuscarApiReal" class="btn-primario">🔍 Buscar Jogo na API Online</button>
+        <h2 class="section-title mb-2">Explorar por Categorias</h2>
+        <p class="text-secondary mb-4">Navegue pelo catálogo utilizando layout estruturado em CSS Grid.</p>
+
+        <div class="grid-gallery">
+            <div class="grid-item" style="background-image: url('img/cat-acao.jpg')">
+                <div class="grid-overlay">
+                    <h4>Ação & FPS</h4>
+                    <span>1.240 títulos</span>
+                </div>
             </div>
-            <p id="statusBuscaApi" style="font-size: 0.82rem; color: #00e054; margin-top: 10px; display: none;"></p>
-
-            <div id="resultadosApiExterna" class="gamergrids" style="margin-top: 18px; margin-bottom: 0; display: none;"></div>
-        </section>
-
-        <section class="section-header">
-            <div>
-                <h2>🎮 Catálogo Salvo na Plataforma</h2>
-                <p>Filtre os jogos já presentes no catálogo e adicione com 1 clique ao seu Backlog ou Lista de Desejos</p>
+            <div class="grid-item" style="background-image: url('img/cat-rpg.jpg')">
+                <div class="grid-overlay">
+                    <h4>RPG de Aventura</h4>
+                    <span>890 títulos</span>
+                </div>
             </div>
-        </section>
-
-        <section class="barra-filtros" aria-label="Filtros do Catálogo">
-            <input type="text" id="inputBuscaCatalogo" placeholder="Filtrar jogos salvos no catálogo (ex: Elden Ring, Cyberpunk, Celeste)...">
-            <select id="selectFiltroGenero">
-                <option value="Todos">Todos os Gêneros</option>
-                <option value="RPG">RPG</option>
-                <option value="Ação">Ação e Aventura</option>
-                <option value="Indie">Indie / Metroidvania</option>
-                <option value="Plataforma">Plataforma</option>
-            </select>
-            <select id="selectFiltroPlataforma">
-                <option value="Todas">Todas as Plataformas</option>
-                <option value="PC">PC</option>
-                <option value="PlayStation 5">PlayStation 5</option>
-                <option value="Xbox Series X">Xbox Series X</option>
-                <option value="Nintendo Switch">Nintendo Switch</option>
-            </select>
-        </section>
-
-        <section id="gridCatalogoExplorar" class="gamergrids" aria-label="Grade de Jogos"></section>
-    </main>
-
-    <footer id="rodape-principal">
-        <div class="footer-container">
-            <div class="footer-col" style="max-width: 340px;">
-                <a href="index.html" class="logo" style="margin-bottom: 10px;">
-                    <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Logo MyGames">
-                    <span>My<b>Games</b></span>
-                </a>
-                <p style="font-size: 0.84rem; color: #9ab;">Plataforma brasileira estilo Backloggd para controle de biblioteca gamer, lista de desejos e análises da comunidade.</p>
+            <div class="grid-item" style="background-image: url('img/cat-corrida.jpg')">
+                <div class="grid-overlay">
+                    <h4>Corrida & Simulação</h4>
+                    <span>430 títulos</span>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Navegação</h4>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="explorar.html">Explorar Catálogo</a></li>
-                    <li><a href="detalhes.html">Detalhes e Multimídia</a></li>
-                    <li><a href="biblioteca.html">Meu Backlog</a></li>
-                    <li><a href="desejos.html">Lista de Desejos</a></li>
-                </ul>
+            <div class="grid-item" style="background-image: url('img/cat-vr.jpg')">
+                <div class="grid-overlay">
+                    <h4>Realidade Virtual</h4>
+                    <span>210 títulos</span>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Comunidade &amp; Conta</h4>
-                <ul>
-                    <li><a href="analises.html">Análises de Jogos</a></li>
-                    <li><a href="comunidade.html">Fórum da Comunidade</a></li>
-                    <li><a href="perfil.html">Meu Perfil Gamer</a></li>
-                    <li><a href="login.html">Entrar / Cadastrar</a></li>
-                    <li><a href="contato.html">Contato e Equipe</a></li>
-                </ul>
+            <div class="grid-item" style="background-image: url('img/cat-estrategia.jpg')">
+                <div class="grid-overlay">
+                    <h4>Estratégia & RTS</h4>
+                    <span>670 títulos</span>
+                </div>
+            </div>
+            <div class="grid-item" style="background-image: url('img/cat-indie.jpg')">
+                <div class="grid-overlay">
+                    <h4>Indie & Retrô</h4>
+                    <span>2.150 títulos</span>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <span>&copy; 2026 MyGames Brasil — Universidade Positivo.</span>
-            <span>Reinaldo Celestino Da Silva Neto &amp; Gustavo Moreira Borges Arantes.</span>
+    </main>
+    <footer class="bg-steam-header text-center py-4 mt-auto border-top border-dark-subtle">
+        <div class="container">
+            <p class="mb-1 text-secondary">&copy; 2026 MyGames Corporation. Inspirado em Steam & Epic Games Store.</p>
         </div>
     </footer>
-
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,110 +1,87 @@
-<!--
-  Projeto: MyGames - Backlog e Diário Gamer Brasileiro
-  Disciplina: DFEW.08 - Desenvolvimento Front-End para Web
-  Professor: Fabricio Olivo (Universidade Positivo)
-  Autores: Reinaldo Celestino Da Silva Neto e Gustavo Moreira Borges Arantes
-  Arquivo: contato.html (Formulário de Contato Completo com Validações Nativas e Equipe)
--->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato &amp; Sobre a Equipe | MyGames</title>
+    <title>Suporte - MyGames</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header id="cabecalho-principal">
-        <div class="navbar-container">
-            <a href="index.html" class="logo">
-                <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Logotipo MyGames">
-                <span>My<b>Games</b></span>
-            </a>
-
-            <button type="button" id="btnMenuMobile" class="menu-mobile-btn" aria-label="Abrir Menu">☰</button>
-
-            <nav id="menuPrincipal" class="navheader" aria-label="Navegação Principal">
-                <a href="index.html">Início</a>
-                <a href="explorar.html">Explorar</a>
-                <a href="detalhes.html">Jogo em Destaque</a>
-                <a href="biblioteca.html">Meu Backlog</a>
-                <a href="desejos.html">Lista de Desejos</a>
-                <a href="analises.html">Análises</a>
-                <a href="comunidade.html">Comunidade</a>
-                <a href="perfil.html">Perfil</a>
-                <a href="contato.html" class="ativo">Contato</a>
-                <a href="https://rawg.io/" target="_blank" rel="noopener noreferrer" class="link-externo">API RAWG ↗</a>
-                <a href="login.html" id="linkSessaoUsuario" class="btn-nav-login">Entrar / Conta</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="container-principal">
-        <section class="section-header">
-            <div>
-                <h2>✉️ Fale Conosco &amp; Sugira Novos Jogos</h2>
-                <p>Formulário com validação nativa (required, minlength, pattern e estados :focus, :hover e :invalid)</p>
-            </div>
-        </section>
-
-        <form id="formContatoOficial" class="form-padrao">
-            <div class="campo-grupo">
-                <label for="contatoNome">Nome Completo</label>
-                <input type="text" id="contatoNome" name="nome" required minlength="3" pattern="^[A-Za-zÀ-ÿ\s]{3,60}$" placeholder="Digite seu nome completo (apenas letras)">
-            </div>
-
-            <div class="campo-grupo">
-                <label for="contatoEmail">Seu E-mail</label>
-                <input type="email" id="contatoEmail" name="email" required placeholder="exemplo@universidadepositivo.com.br">
-            </div>
-
-            <div class="campo-grupo">
-                <label for="contatoAssunto">Assunto do Contato</label>
-                <select id="contatoAssunto" name="assunto" required>
-                    <option value="">Selecione um assunto...</option>
-                    <option value="Sugestão de Jogo no Catálogo">Sugestão de Jogo no Catálogo</option>
-                    <option value="Suporte ao Perfil / Backlog">Suporte ao Perfil / Backlog</option>
-                    <option value="Parcerias e Imprensa">Parcerias e Imprensa</option>
-                    <option value="Feedback Acadêmico">Feedback Acadêmico</option>
-                </select>
-            </div>
-
-            <div class="campo-grupo">
-                <label for="contatoMensagem">Mensagem Detalhada</label>
-                <textarea id="contatoMensagem" name="mensagem" rows="5" required minlength="10" placeholder="Escreva sua mensagem ou sugestão com pelo menos 10 caracteres..."></textarea>
-            </div>
-
-            <input type="submit" value="Enviar Mensagem">
-        </form>
-
-        <section>
-            <div class="section-header">
-                <div>
-                    <h2>🎓 Sobre o Projeto Acadêmico</h2>
-                    <p>Universidade Positivo — Desenvolvimento Front-End para Web (DFEW.08)</p>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-dark bg-steam-header">
+            <div class="container">
+                <a class="navbar-brand fw-bold brand-logo" href="index.html">MY<span>GAMES</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto align-items-xl-center">
+                        <a class="nav-link" href="index.html">Loja</a>
+                        <a class="nav-link" href="explorar.html">Explorar</a>
+                        <a class="nav-link" href="biblioteca.html">Minhas Compras</a>
+                        <a class="nav-link" href="desejos.html">Lista de Desejos</a>
+                        <a class="nav-link" href="detalhes.html">Detalhes</a>
+                        <a class="nav-link" href="analises.html">Análises</a>
+                        <a class="nav-link" href="comunidade.html">Sobre</a>
+                        <a class="nav-link" href="perfil.html">Perfil</a>
+                        <a class="nav-link active" href="contato.html">Suporte</a>
+                        <a class="nav-link" href="login.html">Entrar</a>
+                        <a class="nav-link ext-link" href="https://store.steampowered.com" target="_blank">Steam ↗</a>
+                    </div>
                 </div>
             </div>
+        </nav>
+    </header>
+    <main class="container my-5 flex-grow-1">
 
-            <div class="reviews-grid">
-                <article class="review-card">
-                    <h3>Reinaldo Celestino Da Silva Neto</h3>
-                    <p style="color: #9ab; font-size: 0.9rem;">Desenvolvedor Front-End • Arquitetura HTML5 Semântico, Estilização CSS3 (Grid/Flexbox) e Design System estilo Backloggd.</p>
-                </article>
-                <article class="review-card">
-                    <h3>Gustavo Moreira Borges Arantes</h3>
-                    <p style="color: #9ab; font-size: 0.9rem;">Desenvolvedor Front-End • Integração JavaScript, Manipulação de DOM, Persistência LocalStorage e Componentes Bootstrap.</p>
-                </article>
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card store-card border-0 p-4 p-md-5">
+                    <h2 class="section-title mb-2">Suporte ao Jogador</h2>
+                    <p class="text-secondary mb-4">Envie seu chamado. Os dados são validados e registrados no LocalStorage.</p>
+
+                    <div id="alertaForm" class="alert d-none" role="alert"></div>
+
+                    <form id="contatoForm">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label text-light fw-semibold">Nome de Usuário:</label>
+                            <input type="text" class="form-control form-steam req-field" id="nome" required minlength="3" placeholder="Ex: Gustavo_CWB">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-light fw-semibold">E-mail da Conta:</label>
+                            <input type="email" class="form-control form-steam req-field" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="usuario@dominio.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="assunto" class="form-label text-light fw-semibold">Categoria do Chamado:</label>
+                            <select class="form-select form-steam req-field" id="assunto" required>
+                                <option value="">Selecione uma categoria...</option>
+                                <option value="Problema Tecnico">Problema Técnico / Instalação</option>
+                                <option value="Pagamentos">Cobrança e Reembolso</option>
+                                <option value="Conta">Recuperação de Conta</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="mensagem" class="form-label text-light fw-semibold">Descrição Detalhada:</label>
+                            <textarea class="form-control form-steam req-field" id="mensagem" rows="4" required minlength="10" placeholder="Descreva o que aconteceu..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-steam w-100 py-2 btn-hover">Enviar Chamado ao Suporte</button>
+                    </form>
+
+                    <div class="mt-4 pt-3 border-top border-secondary-subtle">
+                        <h6 class="text-white mb-2">Chamados Salvos no Navegador (LocalStorage):</h6>
+                        <ul id="listaChamados" class="list-group list-group-flush small"></ul>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
     </main>
-
-    <footer id="rodape-principal">
-        <div class="footer-bottom">
-            <span>&copy; 2026 MyGames Brasil — Universidade Positivo (Prof. Fabricio Olivo).</span>
-            <span>Reinaldo Celestino Da Silva Neto &amp; Gustavo Moreira Borges Arantes.</span>
+    <footer class="bg-steam-header text-center py-4 mt-auto border-top border-dark-subtle">
+        <div class="container">
+            <p class="mb-1 text-secondary">&copy; 2026 MyGames Corporation. Inspirado em Steam & Epic Games Store.</p>
         </div>
     </footer>
-
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

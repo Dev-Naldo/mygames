@@ -1,142 +1,96 @@
-<!--
-  Projeto: MyGames - Backlog e Diário Gamer Brasileiro
-  Disciplina: DFEW.08 - Desenvolvimento Front-End para Web
-  Professor: Fabricio Olivo (Universidade Positivo)
-  Autores: Reinaldo Celestino Da Silva Neto e Gustavo Moreira Borges Arantes
-  Arquivo: biblioteca.html (Log de Jogos, Abas de Status e Tabela de Dados 4x4+)
--->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Backlog &amp; Diário | MyGames</title>
+    <title>Minhas Compras - MyGames</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header id="cabecalho-principal">
-        <div class="navbar-container">
-            <a href="index.html" class="logo">
-                <img src="img/Gemini_Generated_Image_ndhiqlndhiqlndhi.jpeg" alt="Logotipo MyGames">
-                <span>My<b>Games</b></span>
-            </a>
-
-            <button type="button" id="btnMenuMobile" class="menu-mobile-btn" aria-label="Abrir Menu">☰</button>
-
-            <nav id="menuPrincipal" class="navheader" aria-label="Navegação Principal">
-                <a href="index.html">Início</a>
-                <a href="explorar.html">Explorar</a>
-                <a href="detalhes.html">Jogo em Destaque</a>
-                <a href="biblioteca.html" class="ativo">Meu Backlog</a>
-                <a href="desejos.html">Lista de Desejos</a>
-                <a href="analises.html">Análises</a>
-                <a href="comunidade.html">Comunidade</a>
-                <a href="perfil.html">Perfil</a>
-                <a href="contato.html">Contato</a>
-                <a href="https://rawg.io/" target="_blank" rel="noopener noreferrer" class="link-externo">API RAWG ↗</a>
-                <a href="login.html" id="linkSessaoUsuario" class="btn-nav-login">Entrar / Conta</a>
-            </nav>
-        </div>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-dark bg-steam-header">
+            <div class="container">
+                <a class="navbar-brand fw-bold brand-logo" href="index.html">MY<span>GAMES</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar-nav ms-auto align-items-xl-center">
+                        <a class="nav-link" href="index.html">Loja</a>
+                        <a class="nav-link" href="explorar.html">Explorar</a>
+                        <a class="nav-link active" href="biblioteca.html">Minhas Compras</a>
+                        <a class="nav-link" href="desejos.html">Lista de Desejos</a>
+                        <a class="nav-link" href="detalhes.html">Detalhes</a>
+                        <a class="nav-link" href="analises.html">Análises</a>
+                        <a class="nav-link" href="comunidade.html">Sobre</a>
+                        <a class="nav-link" href="perfil.html">Perfil</a>
+                        <a class="nav-link" href="contato.html">Suporte</a>
+                        <a class="nav-link" href="login.html">Entrar</a>
+                        <a class="nav-link ext-link" href="https://store.steampowered.com" target="_blank">Steam ↗</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
+    <main class="container my-5 flex-grow-1">
 
-    <main class="container-principal">
-        <section class="section-header">
-            <div>
-                <h2>📚 Meu Backlog &amp; Diário de Jogos</h2>
-                <p>Gerencie o estado dos seus jogos: Jogando, Zerado, Quero Jogar (Pretendo Jogar), Pausado e Dropado</p>
-            </div>
-        </section>
+        <h2 class="section-title mb-2">Minhas Compras & Chaves Steam</h2>
+        <p class="text-secondary mb-4">Acesse os códigos de ativação (Steam Keys) dos jogos adquiridos e confira os conteúdos bônus de mídia.</p>
 
-        <section class="abas-status" aria-label="Filtro por Estado do Jogo">
-            <button type="button" class="aba-btn aba-filtro-status ativa" data-status="Todos">Todos</button>
-            <button type="button" class="aba-btn aba-filtro-status" data-status="Jogando">🎮 Jogando</button>
-            <button type="button" class="aba-btn aba-filtro-status" data-status="Zerado">🏆 Zerado</button>
-            <button type="button" class="aba-btn aba-filtro-status" data-status="Quero Jogar">📌 Quero Jogar</button>
-            <button type="button" class="aba-btn aba-filtro-status" data-status="Pausado">⏸️ Pausado</button>
-            <button type="button" class="aba-btn aba-filtro-status" data-status="Dropado">❌ Dropado</button>
-        </section>
-
-        <section class="tabela-wrapper" aria-label="Tabela de Registros do Backlog">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Título do Jogo</th>
-                        <th>Plataforma</th>
-                        <th>Estado no Backlog</th>
-                        <th>Horas Jogadas</th>
-                        <th>Avaliação (0 a 5)</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody id="corpoTabelaJogos"></tbody>
-            </table>
-        </section>
-
-        <section>
-            <div class="section-header">
-                <div>
-                    <h2>➕ Registrar Novo Jogo no Backlog</h2>
-                    <p>Os dados ficam salvos automaticamente no seu navegador via LocalStorage</p>
+        <div class="row g-4">
+            <div class="col-lg-7">
+                <div class="card store-card border-0 p-4 h-100">
+                    <h4 class="text-white mb-2">Trailer Oficial de Lançamento</h4>
+                    <p class="text-secondary small mb-3">Reprodutor de vídeo nativo HTML5 com controles habilitados.</p>
+                    <div class="ratio ratio-16x9 rounded overflow-hidden bg-black">
+                        <video controls preload="metadata" playsinline poster="img/banner.jpg" src="video/trailer.mp4" style="width: 100%; height: 100%; object-fit: cover;">
+                            <source src="video/trailerr.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos HTML5.
+                        </video>
+                    </div>
                 </div>
             </div>
-
-            <form id="formAdicionarBacklog" class="form-padrao">
-                <div class="campo-grupo">
-                    <label for="inputJogoBacklog">Nome do Jogo</label>
-                    <input type="text" id="inputJogoBacklog" required minlength="2" placeholder="Ex: Dark Souls III, Persona 5 Royal...">
+            <div class="col-lg-5">
+                <div class="card store-card border-0 p-4 h-100 d-flex flex-column">
+                    <h4 class="text-white mb-2">Trilha Sonora Bônus (OST)</h4>
+                    <p class="text-secondary small mb-4">Brinde digital incluso na compra da chave oficial.</p>
+                    <div class="p-3 rounded bg-dark-panel border border-secondary-subtle mb-4">
+                        <div class="fw-bold text-white mb-2">01. Main Theme - Orchestral Mix</div>
+                        <audio controls preload="metadata" class="w-100" src="audio/trilha.mp3">
+                            <source src="audio/trilha.mp3" type="audio/mpeg">
+                            Seu navegador não suporta áudio HTML5.
+                        </audio>
+                    </div>
+                    <div class="mt-auto">
+                        <h6 class="text-white mb-2">Suas Chaves de Ativação (Steam Key)</h6>
+                        <ul class="list-group list-group-flush bg-transparent">
+                            <li class="list-group-item bg-transparent text-secondary border-secondary-subtle px-0 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong class="text-white d-block">Elden Ring: Shadow of the Erdtree</strong>
+                                    <small class="text-info">Ativação: Steam PC</small>
+                                </div>
+                                <span class="badge bg-dark border border-secondary text-light font-monospace p-2">ELDN-94KX-77PQ-2026</span>
+                            </li>
+                            <li class="list-group-item bg-transparent text-secondary border-secondary-subtle px-0 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong class="text-white d-block">Cyberpunk 2077</strong>
+                                    <small class="text-info">Ativação: Steam PC</small>
+                                </div>
+                                <span class="badge bg-dark border border-secondary text-light font-monospace p-2">CYBR-2077-X89A-KEY1</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-
-                <div class="campo-grupo">
-                    <label for="selectPlataformaBacklog">Plataforma</label>
-                    <select id="selectPlataformaBacklog" required>
-                        <option value="PC">PC (Steam / Epic)</option>
-                        <option value="PlayStation 5">PlayStation 5</option>
-                        <option value="PlayStation 4">PlayStation 4</option>
-                        <option value="Xbox Series X">Xbox Series X|S</option>
-                        <option value="Nintendo Switch">Nintendo Switch</option>
-                    </select>
-                </div>
-
-                <div class="campo-grupo">
-                    <label for="selectStatusBacklog">Estado do Jogo</label>
-                    <select id="selectStatusBacklog" required>
-                        <option value="Jogando">Jogando</option>
-                        <option value="Zerado">Zerado</option>
-                        <option value="Quero Jogar">Quero Jogar (Pretendo Jogar)</option>
-                        <option value="Pausado">Pausado</option>
-                        <option value="Dropado">Dropado</option>
-                    </select>
-                </div>
-
-                <div class="campo-grupo">
-                    <label for="inputHorasBacklog">Horas Jogadas</label>
-                    <input type="text" id="inputHorasBacklog" required pattern="^[0-9]{1,4}$" placeholder="Somente números (ex: 45)">
-                </div>
-
-                <div class="campo-grupo">
-                    <label for="inputNotaBacklog">Sua Nota (0 a 5 Estrelas)</label>
-                    <select id="inputNotaBacklog" required>
-                        <option value="5">★★★★★ (5.0 - Obra-prima)</option>
-                        <option value="4.5">★★★★☆ (4.5 - Excelente)</option>
-                        <option value="4">★★★★ (4.0 - Muito Bom)</option>
-                        <option value="3">★★★ (3.0 - Regular)</option>
-                        <option value="2">★★ (2.0 - Fraco)</option>
-                        <option value="1">★ (1.0 - Ruim)</option>
-                    </select>
-                </div>
-
-                <button type="submit">Salvar no Meu Backlog</button>
-            </form>
-        </section>
+            </div>
+        </div>
     </main>
-
-    <footer id="rodape-principal">
-        <div class="footer-bottom">
-            <span>&copy; 2026 MyGames Brasil — Universidade Positivo.</span>
-            <span>Reinaldo Celestino Da Silva Neto &amp; Gustavo Moreira Borges Arantes.</span>
+    <footer class="bg-steam-header text-center py-4 mt-auto border-top border-dark-subtle">
+        <div class="container">
+            <p class="mb-1 text-secondary">&copy; 2026 MyGames Keys. Loja Digital de Chaves Oficiais com Ativação Steam.</p>
         </div>
     </footer>
-
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
