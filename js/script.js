@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         for (let i = 0; i < ids.length; i++) {
             const jogo = catalogo[ids[i]];
+            if (!jogo) continue;
             const card = document.createElement("article");
             card.className = "flex-card";
             card.innerHTML =
